@@ -1,0 +1,156 @@
+.cart-page {
+    margin: 80px 300px;
+
+}
+
+table {
+    width: 100%;
+    border-collapse: separate;
+
+}
+
+.cart-info {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.price {
+    width: 120px;
+    height: 40px;
+}
+
+th {
+    text-align: left;
+    padding: 5px;
+    background: #F195B2;
+    color: white;
+    font-weight: normal;
+
+    font-family: "Poppins", sans-serif;
+
+}
+
+th.quantityy {
+    width: 120px;
+
+    text-align: center;
+
+}
+
+.pricee {
+    width: 200px;
+
+}
+
+td {
+    font-size: 19px;
+    padding: 10px 5px;
+}
+
+td input {
+    width: 40px;
+    height: 30px;
+    padding: 5px;
+}
+
+td a {
+
+    font-size: 12px;
+    color: red;
+}
+
+td img {
+    width: 100px;
+    height: 100px;
+    margin-right: 10px;
+
+}
+
+.totale-price {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.totale-price table {
+    border-top: 3px solid #F195B2;
+    width: 100%;
+    max-width: 37%;
+}
+
+td:last-child {
+    text-align: right;
+}
+
+th:last-child {
+    text-align: right;
+}
+
+@media screen and (max-width: 300px) and (max-height: 700px) {
+    table {
+        width: 100%;
+        border-collapse: separate;
+
+    }
+
+    .totale-price {
+        display: flex;
+        justify-content: flex-end;
+        margin-right: 0px;
+    }
+
+    .cart-page {
+        margin-left: 0px;
+        margin-top: 50px;
+        margin-right: 0px;
+
+    }
+
+    td input {
+        width: 15px;
+        height: 30px;
+
+    }
+
+    th.quantity {
+
+
+        text-align: center;
+
+    }
+}
+
+
+@media screen and (max-width: 420px) and (max-height: 920px) {
+
+
+    table {
+        width: 100%;
+        border-collapse: separate;
+
+    }
+
+    .totale-price {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .cart-page {
+        margin-left: 0px;
+        margin-top: 50px;
+        margin-right: -5px;
+
+    }
+
+    td input {
+        width: 20px;
+        height: 30px;
+
+    }
+
+    th.quantity {
+        width: 120px;
+
+        text-align: center;
+
+    }
+}

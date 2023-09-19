@@ -1,0 +1,226 @@
+<% layout('layouts/productheader') %>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Products</title>
+        <style>
+            /* Your CSS styles here */
+            /* For screens with max width of 420px and max height of 920px */
+            /* For screens with max width of 420px and max height of 920px */
+
+
+
+            .containercandles {
+                display: grid;
+                margin: auto;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 20px;
+
+            }
+
+            .candle,
+            .platre {
+                width: 100%;
+                max-width: 270px;
+                /* Adjust the max-width as needed */
+
+                text-align: center;
+                border: 1px solid #fff;
+
+                position: relative;
+            }
+
+            .price-container {
+                background-color: #007bff;
+                width: 80px;
+                /* Fixed width */
+                position: absolute;
+                top: 14%;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .image-container {
+                width: 150px;
+                height: 150px;
+                /* Fixed height */
+                top: 0%;
+
+                left: 18.25%;
+                position: absolute;
+            }
+
+            .product-image {
+                max-width: 100%;
+                max-height: 100%;
+                object-fit: cover;
+            }
+
+            @media screen and (max-width: 420px) and (max-height: 920px) {
+
+                .containercandles {
+                    grid-template-columns: 1fr;
+                    padding: 0;
+                    /* Display one item per row on phones */
+                }
+
+
+                .candle,
+                .platre {
+                    width: 100%;
+                    /* Display one item per row on phones */
+                    margin: auto;
+                    width: 100%;
+                }
+
+                .price-container {
+
+                    width: auto;
+                    /* Let the width be determined by content */
+                    padding: 5px;
+                    padding-bottom: 100px;
+                    /* Fixed width */
+                    height: auto;
+
+                    position: absolute;
+                    top: 12%;
+                    left: 50%;
+                    transform: translateX(-50%);
+                }
+
+                .image-container {
+                    width: 140px;
+                    height: 140px;
+                    /* Fixed height */
+                    top: 0%;
+
+                    left: 20.25%;
+                    position: absolute;
+                }
+
+                h4 {}
+            }
+        </style>
+
+
+
+
+
+    </head>
+
+    <body>
+        <div class="container-fluid py-5" style="margin-bottom: -10px;">
+            <div class="container py-5" style="margin-bottom: -20px;">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
+                        <h1 class="section-title position-relative text-center mb-5">Best Prices We Offer For our
+                            costumers</h1>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <ul class="list-inline mb-4 pb-2" id="portfolio-flters">
+                            <li class="btn btn-sm btn-outline-primary m-1 active" data-filter="*">All</li>
+                            <li class="btn btn-sm btn-outline-primary m-1" data-filter=".candle">Candles</li>
+                            <li class="btn btn-sm btn-outline-primary m-1" data-filter=".platre">Plasters</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="containercandles" style="margin-top: 0px;">
+                    <% for (let product of candleproducts) { %>
+                        <div
+                            class="candle product-item  flex-column align-items-center text-center bg-light rounded py-5 px-3 ">
+                            <div class="bg-primary mt-n5 py-3 price-container">
+                                <h4 class="font-weight-bold text-white mb-0">
+                                    <%=product.price%>DA
+                                </h4>
+                            </div>
+                            <div class="position-relative bg-primary rounded-circle p-3 image-container">
+                                <img class="rounded-circle w-100 h-100 product-image" src="<%= product.picture %>"
+                                    style="object-fit: cover;">
+                            </div>
+                            <h5 class="font-weight-bold mb-4">
+                                <%=product.title%>
+                            </h5>
+                            <a href="/product/<%=product._id%>" class="btn btn-sm btn-secondary">Order
+                                Now</a>
+                        </div>
+                        <%} %>
+                            <% for (let product of platreproducts) { %>
+                                <div
+                                    class="platre product-item  flex-column align-items-center text-center bg-light rounded py-5 px-3 ">
+                                    <div class="bg-primary mt-n5 py-3 price-container" style="width: 80px;">
+                                        <h4 class="font-weight-bold text-white mb-0">
+                                            <%=product.price%>DA
+                                        </h4>
+                                    </div>
+                                    <div class="position-relative bg-primary rounded-circle p-3 image-container"
+                                        style="width: 150px; height: 150px;margin-bottom: 25px;">
+                                        <img class="rounded-circle w-100 h-100 product-image"
+                                            src="<%= product.picture %>" style="object-fit: cover; ">
+                                    </div>
+                                    <h5 class="font-weight-bold mb-4">
+                                        <%=product.title%>
+                                    </h5>
+                                    <a href="/product/<%=product._id%>" class="btn btn-sm btn-secondary">Order
+                                        Now</a>
+                                </div>
+                                <%} %>
+                                    <!-- Add more items with appropriate classes -->
+                </div>
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const portfolioFilters = document.getElementById("portfolio-flters");
+                const candleContainers = document.querySelectorAll(".candle");
+                const platreContainers = document.querySelectorAll(".platre");
+
+                portfolioFilters.addEventListener("click", function (event) {
+                    if (event.target.classList.contains("btn")) {
+                        const category = event.target.getAttribute("data-filter");
+
+                        if (category === "*") {
+                            candleContainers.forEach(function (candleContainer) {
+                                candleContainer.style.display = "block";
+                            });
+                            platreContainers.forEach(function (platreContainer) {
+                                platreContainer.style.display = "block";
+                            });
+                        }
+                        if (category === ".candle") {
+                            candleContainers.forEach(function (candleContainer) {
+                                candleContainer.style.display = "block";
+                            });
+                            platreContainers.forEach(function (platreContainer) {
+                                platreContainer.style.display = "none";
+                            });
+                        }
+                        if (category === ".platre") {
+                            candleContainers.forEach(function (candleContainer) {
+                                candleContainer.style.display = "none";
+                            });
+                            platreContainers.forEach(function (platreContainer) {
+                                platreContainer.style.display = "block";
+                            });
+                        }
+
+                        const activeButtons = portfolioFilters.querySelectorAll(".btn");
+                        activeButtons.forEach(function (button) {
+                            button.classList.remove("active");
+                        });
+                        event.target.classList.add("active");
+                    }
+                });
+            });
+        </script>
+    </body>
+
+    </html>

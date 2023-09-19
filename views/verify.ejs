@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('layouts/links' )%>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Verify</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+        <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+        <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+            crossorigin="anonymous"></script>
+        <!-- Your HTML head content here -->
+        <style>
+            .form {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                background: #00000000;
+                border-radius: 16px;
+                box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+                backdrop-filter: blur(8.2px);
+                -webkit-backdrop-filter: blur(8.2px);
+                border: 1px solid #F195B2;
+                width: 22em;
+                height: 19em;
+                margin: auto;
+                margin-top: 100px;
+            }
+
+            .content {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                margin-top: auto;
+                margin-bottom: auto;
+            }
+
+            .form p {
+                color: #62C3E7;
+                font-weight: bolder;
+            }
+
+            .path {
+                fill: #F195B2
+            }
+
+            .svg {
+                filter: blur(20px);
+                z-index: -1;
+                position: absolute;
+                opacity: 50%;
+                animation: anim 3s infinite;
+            }
+
+            .inp {
+                margin-left: auto;
+                margin-right: auto;
+                white-space: 4px;
+            }
+
+            .input+.input {
+                margin-left: 0.3em
+            }
+
+            .input {
+                color: #62C3E7;
+                height: 2em;
+                width: 2em;
+                float: left;
+                text-align: center;
+                background: #00000000;
+                outline: none;
+                border: 1px #F195B2 solid;
+                border-radius: 10px;
+                transition: all 0.6s ease;
+            }
+
+            .input:focus {
+                outline: none;
+                border: 1px #fff solid;
+            }
+
+            .input:not(:placeholder-shown) {
+                opacity: 40%
+            }
+
+            .form .button {
+                margin-left: auto;
+                margin-right: auto;
+                background-color: #00000000;
+                color: #62C3E7;
+                width: 8.5em;
+                height: 2.3em;
+                border: #F195B2 0.2em solid;
+                border-radius: 11px;
+                transition: all 0.5s ease;
+            }
+
+            #sendVerificationCodeButton {
+                border: none;
+                background-color: #00000000;
+                color: #62C3E7;
+                margin-left: 6.37em;
+
+            }
+
+
+
+            .form .button:hover {
+                background-color: #F195B2;
+            }
+
+            @keyframes anim {
+                0% {
+                    transform: translateY(-70px);
+                }
+
+                50% {
+                    transform: translateY(-19px);
+                }
+
+                100% {
+                    transform: translateY(-70px);
+                }
+            }
+
+            #succes {
+                width: 200px;
+                margin: auto;
+            }
+        </style>
+</head>
+
+<body>
+    <%- include('layouts/flash' )%>
+
+
+
+        <form action="/verify" method="post">
+            <div class="form">
+                <div class="content">
+                    <p align="center">Code sent to Verification :<%=email %>
+                    </p>
+                    <div class="inp">
+                        <input placeholder="" type="text" class="input" maxlength="1">
+                        <input placeholder="" type="text" class="input" maxlength="1">
+                        <input placeholder="" type="text" class="input" maxlength="1">
+                        <input placeholder="" type="text" class="input" maxlength="1">
+                        <input placeholder="" type="text" class="input" maxlength="1">
+                        <input placeholder="" type="text" class="input" maxlength="1">
+                        <input type="hidden" id="verificationCode" name="verificationCode">
+                    </div>
+                    <button type="submit" class="button">Verify</button>
+                    <svg class="svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                        <path fill="#4073ff"
+                            d="M56.8,-23.9C61.7,-3.2,45.7,18.8,26.5,31.7C7.2,44.6,-15.2,48.2,-35.5,36.5C-55.8,24.7,-73.9,-2.6,-67.6,-25.2C-61.3,-47.7,-30.6,-65.6,-2.4,-64.8C25.9,-64.1,51.8,-44.7,56.8,-23.9Z"
+                            transform="translate(100 100)" class="path"></path>
+                    </svg>
+
+        </form>
+        <form action="/resend-verify" method="post" id="resend-form">
+            <button onclick=startCountdown() type="submit" id="sendVerificationCodeButton"
+                data-remaining-time="<%= remainingTime %>">resend-verify code:<span id="countdown"></span></button>
+        </form>
+        </div>
+        </div>
+
+
+
+</body>
+<script>
+    const inputs = document.querySelectorAll('.input');
+    const hiddenInput = document.querySelector('#verificationCode'); // Update the selector
+
+    inputs.forEach((input, index) => {
+        input.addEventListener('input', (e) => {
+            if (e.target.value.length === 1) {
+                // Move focus to the next input field
+                if (index < inputs.length - 1) {
+                    inputs[index + 1].focus();
+                }
+
+                // Check if all inputs have a number
+                const allInputsHaveNumber = Array.from(inputs).every((input) => {
+                    return input.value.length === 1 && !isNaN(input.value);
+                });
+
+                if (allInputsHaveNumber) {
+                    // Populate the hidden input with the numbers
+                    hiddenInput.value = Array.from(inputs)
+                        .map((input) => input.value)
+                        .join('');
+                    console.log(hiddenInput.value);
+                }
+            }
+        });
+
+        // Handle backspace key to move to the previous input field
+        input.addEventListener('keydown', (e) => {
+            if (e.key === 'Backspace' && index > 0 && e.target.value.length === 0) {
+                inputs[index - 1].focus();
+            }
+        });
+    });
+
+</script>
+<script>
+    const allinputs = document.querySelectorAll('.input');
+
+    allinputs.forEach((input, index) => {
+        input.addEventListener('input', (e) => {
+            if (e.target.value.length === 1) {
+                // Move focus to the next input field
+                if (index < allinputs.length - 1) {
+                    allinputs[index + 1].focus();
+                }
+            }
+        });
+
+        // Handle backspace key to move to the previous input field
+        input.addEventListener('keydown', (e) => {
+            if (e.key === 'Backspace' && index > 0 && e.target.value.length === 0) {
+                allinputs[index - 1].focus();
+            }
+        });
+    });
+</script>
+
+
+
+
+
+
+<script>
+
+    function startCountdown() {
+        const button = document.getElementById('sendVerificationCodeButton');
+        const remainingTime = button.getAttribute('data-remaining-time');
+        const displaytime = document.getElementById('countdown')
+        // Convert remaining time to an integer
+        const remainingTimeIntt = parseInt(remainingTime) / 1000;
+        const remainingTimeInt = Math.floor(remainingTimeIntt)
+        console.log(remainingTimeInt)
+
+        if (remainingTimeInt > 0) {
+            let countdown = remainingTimeInt;
+
+            // Disable the button
+            button.disabled = true;
+
+            const countdownInterval = setInterval(function () {
+                if (countdown === 0) {
+                    // Enable the button when the countdown reaches 0
+                    button.innerText = 'Send another verification code';
+                    button.disabled = false;
+                    clearInterval(countdownInterval);
+                } else {
+                    // Update the button text with the remaining seconds
+
+                    countdown--;
+                    displaytime.innerText = `${countdown}`
+                }
+            }, 1000);
+        }
+    }
+</script>
+
+</html>

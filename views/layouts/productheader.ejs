@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        .card__price {
+            font-weight: 600;
+            font-size: 22px;
+            color: var(#fff);
+        }
+
+        .card__counter-score {
+            transition: none;
+            width: 25px;
+            box-sizing: border-box;
+            /* Temporarily disable transitions */
+        }
+
+        .card__counter-scorer {
+            font-weight: 600;
+            font-size: 22px;
+            margin: auto;
+        }
+
+        .card__counter-score,
+        .card__btn1 {
+            font-weight: 600;
+            font-size: 22px;
+            color: var(#fff);
+            overflow: hidden;
+        }
+
+        .card__wrapper {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 50px;
+            margin-bottom: 0;
+
+        }
+
+        .card__counter {
+            width: 120px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            overflow: hidden;
+            gap: 15px;
+            padding: 5px;
+            background-color: #F3F6FF;
+            border-radius: 50px;
+        }
+
+        .card__counterr {
+            width: 120px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            overflow: hidden;
+            gap: 15px;
+            padding: 5px;
+
+            border-radius: 50px;
+        }
+
+        .card__counter-score,
+        .card__btn1 {
+            font-weight: 600;
+            font-size: 22px;
+            color: #000;
+        }
+
+        .card__btn1 {
+            width: 30px;
+            height: 30px;
+            border-radius: 100%;
+            border: none;
+            background: transparent;
+        }
+
+        .card__btn-plus1 {
+            background-color: #62C3E7;
+            border-color: #62C3E7;
+        }
+
+        .card__btn1:focus {
+            outline: none;
+        }
+    </style>
+
+
+    <meta charset="utf-8">
+    <title>ilhem candle </title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon 
+    <link href="img/favicon.ico" rel="icon">
+-->
+    <!-- Google Web Fonts -->
+
+    <!--<link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">-->
+
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link rel="stylesheet" href="/cart.css">
+    <link href="/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="/checkcolor.css">
+
+</head>
+
+<body>
+    <%- include('flash' )%>
+        <!-- Topbar Start -->
+        <div class="container-fluid bg-primary py-3 d-none d-md-block">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 text-center text-lg-left mb-2 mb-lg-0">
+                        <div class="d-inline-flex align-items-center">
+
+                            <a class="text-white px-3" href="/contact">Help</a>
+                            <span class="text-white">|</span>
+                            <a class="text-white pl-3" href="/contact">Support</a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 text-center text-lg-right">
+                        <div class="d-inline-flex align-items-center">
+                            <a class="text-white px-3"
+                                href="https://m.facebook.com/people/Ilhem_candles/100083310916285/" target="_blank">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+
+
+
+                            <a class="text-white px-3" href="https://www.instagram.com/ilhem_candles/" target="_blank">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a class="text-white pl-3" href="https://www.tiktok.com/@ilhem_candles" target="_blank">
+                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22px" height="22px"
+                                    viewBox="0,0,256,256">
+                                    <g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1"
+                                        stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10"
+                                        stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none"
+                                        font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                                        <g transform="scale(5.33333,5.33333)">
+                                            <path
+                                                d="M11.5,6c-3.01977,0 -5.5,2.48023 -5.5,5.5v25c0,3.01977 2.48023,5.5 5.5,5.5h25c3.01977,0 5.5,-2.48023 5.5,-5.5v-25c0,-3.01977 -2.48023,-5.5 -5.5,-5.5zM27.5,11c0.83,0 1.5,0.67 1.5,1.5c0,3.03 2.47,5.5 5.5,5.5c0.83,0 1.5,0.67 1.5,1.5c0,0.83 -0.67,1.5 -1.5,1.5c-2.1,0 -4.02,-0.75953 -5.5,-2.01953v10.01953c0,4.41 -3.59,8 -8,8c-4.41,0 -8,-3.59 -8,-8c0,-4.41 3.59,-8 8,-8c0.21,0 0.41914,0.00953 0.61914,0.01953c0.83,0.07 1.45086,0.79133 1.38086,1.61133c-0.06,0.83 -0.77938,1.44867 -1.60937,1.38867c-0.13,-0.01 -0.26063,-0.01953 -0.39062,-0.01953c-2.76,0 -5,2.24 -5,5c0,2.76 2.24,5 5,5c2.76,0 5,-2.24 5,-5v-16.5c0,-0.83 0.67,-1.5 1.5,-1.5z">
+                                            </path>
+                                        </g>
+                                    </g>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Topbar End -->
+        <!-- Navbar Start -->
+        <div class="container-fluid position-relative nav-bar p-0">
+            <div class="container-lg position-relative p-0 px-lg-3" style="z-index: 9;">
+                <nav class="navbar navbar-expand-lg bg-white navbar-light shadow p-lg-0">
+                    <a href="/" class="navbar-brand d-block d-lg-none">
+                        <h1 class="m-0 display-4 text-primary"><span class="text-secondary">i</span>CANDLE</h1>
+                    </a>
+                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                        <div class="navbar-nav ml-auto py-0">
+                            <a href="/" class="nav-item nav-link <%= activePage === 'home' ? 'active' : '' %>">Home</a>
+                            <a href="/about"
+                                class="nav-item nav-link <%= activePage === 'about' ? 'active' : '' %>">About</a>
+                            <a href="/products"
+                                class="nav-item nav-link <%= activePage === 'products' ? 'active' : '' %>">Products</a>
+                        </div>
+                        <a href="/" class="navbar-brand mx-5 d-none d-lg-block">
+                            <h1 class="m-0 display-4 text-primary"><span class="text-secondary">i</span>CANDLE</h1>
+                        </a>
+                        <div class="navbar-nav mr-auto py-0">
+                            <a href="/contact"
+                                class="nav-item nav-link <%= activePage === 'contact' ? 'active' : '' %>">Contact</a>
+                            <% if(currentUser) { %>
+
+                                <a href="/logout" class="nav-item nav-link">Logout</a>
+                                <a href="/cart"
+                                    class="nav-item nav-link <%= activePage === 'cart' ? 'active' : '' %>"><svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        class="icon icon-tabler icon-tabler-shopping-cart" width="28" height="28"
+                                        viewBox="0 0 24 24" stroke-width="1.5" stroke="#fd0061" fill="none"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                        <path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+                                        <path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+                                        <path d="M17 17h-11v-14h-2" />
+                                        <path d="M6 5l14 1l-1 7h-13" />
+
+                                    </svg>
+                                    <% if (typeof productsincart !=='undefined' ) {%>
+                                        (<%=productsincart%>)
+                                            <%}%>
+
+
+                                </a>
+                                <% } else {%>
+
+
+                                    <a href="/login" class="nav-item nav-link">Login</a>
+                                    <a href="/register" class="nav-item nav-link">Register</a>
+                                    <% } %>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <!-- Navbar End -->
+
+
+
+
+
+        <!-- Back to Top -->
+
+
+        <%- body %>
+            <%- include('footer' )%>
+
+                <% if (typeof productsincart !=='undefined' ) {%>
+                    <script>
+                        let userActive = true;
+
+                        // Function to set userActive to true on user activity
+                        function setUserActive() {
+                            userActive = true;
+                        }
+
+                        // Listen for user activity events
+                        window.addEventListener('mousemove', setUserActive);
+                        window.addEventListener('keydown', setUserActive);
+                        window.addEventListener('mousedown', setUserActive); // Add this line to detect mouse clicks
+
+                        // Function to check user activity and log out if inactive
+                        function checkUserActivity() {
+                            if (!userActive) {
+                                alert("you have been inactive for a long time login again Thank you !")
+                                const logoutLink = document.querySelector('a.nav-item.nav-link[href="/logout"]');
+                                if (logoutLink) {
+                                    logoutLink.click();
+                                }
+                                // You can trigger a logout event or redirect to a logout page
+                            } else {
+                                // Reset userActive to false for the next check
+                                userActive = false;
+                            }
+                        }
+
+                        // Check user activity every minute
+                        setInterval(checkUserActivity, 45 * 60 * 1000);; // 45 minutes in milliseconds
+                    </script>
+                    <%}%>
+
+
+</body>
+
+</html>
