@@ -220,7 +220,7 @@ app.use((req, res) => {
 })
 app.use(mongosanitize)
 
-
-app.listen(3000, () => {
-    console.log('port 3000');
+const port = process.env.Port || 3000;
+app.listen(port, () => {
+    console.log(`serving on port ${port}`);
 });
