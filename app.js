@@ -221,6 +221,6 @@ app.use((req, res) => {
 app.use(mongosanitize)
 
 const port = process.env.Port || 3000;
-app.listen(80, () => {
+app.listen(port, () => {
     console.log(`serving on port ${port}`);
 });
