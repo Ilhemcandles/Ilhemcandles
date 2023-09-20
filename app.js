@@ -1,4 +1,5 @@
-if (process.env.Node_ENV !== "production") {
+
+if (process.env.NODE_ENV !== "production") {
     require('dotenv').config();
 }
 const mongosanitize = require('express-mongo-sanitize')
@@ -75,7 +76,7 @@ const mysecret = process.env.SECRET || 'thisismehdiselkasecret';
 app.use(express.urlencoded({ extended: true }));
 const Store = new MongoDBStore({
     url: dburl,
-    mysecret,
+    secret: mysecret,
     touchAfter: 24 * 60 * 60,
 });
 Store.on("error", function (e) {
