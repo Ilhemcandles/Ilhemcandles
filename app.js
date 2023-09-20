@@ -71,7 +71,7 @@ const fontSrcUrls = [
 ];
 
 // Middleware Setup
-const mysecret = process.env.SECRET || 'thisismehdiselkasecret'
+const mysecret = process.env.SECRET || 'thisismehdiselkasecret';
 app.use(express.urlencoded({ extended: true }));
 const Store = new MongoDBStore({
     url: dburl,
