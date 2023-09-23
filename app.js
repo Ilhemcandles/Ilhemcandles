@@ -27,13 +27,9 @@ const cart = require('./model/cart');
 const override = require('method-override');
 const flash = require('connect-flash');
 
-const MongoDBStore = require('connect-mongodb-session')(session);
+const MongoDBStore = require('connect-mongo');
 const dburl = process.env.DB_URL
-mongoose.connect(dburl, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
 
-});
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
 db.once("open", () => {
@@ -42,7 +38,6 @@ db.once("open", () => {
 
 const app = express();
 let productsincart = 0;
-
 
 // Catch errors if session store fails to connect
 
@@ -74,20 +69,34 @@ const fontSrcUrls = [
 // Middleware Setup
 const mysecret = process.env.SECRET || 'thisismehdiselkasecret';
 app.use(express.urlencoded({ extended: true }));
-const Store = new MongoDBStore({
-    url: dburl,
-    secret: mysecret,
-    touchAfter: 24 * 60 * 60,
+mongoose.connect(dburl, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+
 });
-Store.on("error", function (e) {
-    console.log("store error", e)
-})
+
+app.use(mongosanitize({
+    replaceWith: "_"
+}))
+
+
+
+
 const sessionconfig = {
-    Store,
+
     name: "session",
     secret: mysecret,
     resave: false,
     saveUninitialized: true,
+    store: MongoDBStore.create({
+        mongoUrl: dburl,
+
+        // Advanced options can be added here if needed
+        // For example, you can set 'autoRemove' to automatically remove expired sessions
+
+        touchAfter: 24 * 60 * 60, // 1 day in seconds
+        secret: mysecret,
+    }),
     cookie: {
         httpOnly: true,
         expires: Date.now() + 1000 * 60 * 60 * 12,
@@ -220,7 +229,7 @@ app.use((err, req, res, next) => {
 app.use((req, res) => {
     res.status(404).render("404", { activePage: "home" })
 })
-app.use(mongosanitize)
+
 
 const port = process.env.Port || 3000;
 app.listen(port, () => {
