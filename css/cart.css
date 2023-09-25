@@ -149,3 +149,31 @@ th:last-child {
 
     th.quantity {}
 }
+
+@media screen and (width: 375px) {
+    table {
+        width: 100%;
+        border-collapse: separate;
+
+    }
+
+    .totale-price {
+        display: flex;
+        justify-content: center;
+    }
+
+    .cart-page {
+        margin-left: 0px;
+        margin-top: 50px;
+        margin-right: -5px;
+
+    }
+
+    td input {
+        width: 20px;
+        height: 30px;
+
+    }
+
+    th.quantity {}
+}
