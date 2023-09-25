@@ -147,10 +147,5 @@ th:last-child {
 
     }
 
-    th.quantity {
-        width: 120px;
-
-
-
-    }
+    th.quantity {}
 }
