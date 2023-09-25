@@ -148,32 +148,47 @@ th:last-child {
     }
 
     th.quantity {}
-}
 
-@media screen and (width: 375px) {
-    table {
-        width: 100%;
-        border-collapse: separate;
+    /* Custom styling for iOS devices */
+    @media screen and (max-width: 440px) {
 
+        /* Add your custom styles for iOS here */
+        .card__counter button {
+            width: 30px;
+            /* Adjust the width as needed */
+            height: 30px;
+            padding: 0;
+            /* Remove padding to eliminate extra space */
+            background-color: #F195B2;
+            /* Customize the button appearance */
+            color: white;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            border-radius: 50%;
+            /* Makes the button round */
+            outline: none;
+            /* Remove the default focus outline */
+        }
+
+        .card__counter-score {
+            width: 30px;
+            /* Match the width of the plus and minus buttons */
+            height: 30px;
+            line-height: 30px;
+            /* Vertically center the number */
+            text-align: center;
+            font-size: 18px;
+        }
+
+        /* Adjust margin or spacing as needed */
+        .card__btn1 {
+            margin-right: 5px;
+        }
+
+        .card__btn-plus1 {
+            margin-left: 5px;
+        }
     }
 
-    .totale-price {
-        display: flex;
-        justify-content: center;
-    }
-
-    .cart-page {
-        margin-left: 0px;
-        margin-top: 50px;
-        margin-right: -5px;
-
-    }
-
-    td input {
-        width: 20px;
-        height: 30px;
-
-    }
-
-    th.quantity {}
 }
