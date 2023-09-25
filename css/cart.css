@@ -159,9 +159,9 @@ th:last-child {
             height: 30px;
             padding: 0;
             /* Remove padding to eliminate extra space */
-            background-color: #F195B2;
+
             /* Customize the button appearance */
-            color: white;
+
             font-size: 18px;
             border: none;
             cursor: pointer;
@@ -169,6 +169,10 @@ th:last-child {
             /* Makes the button round */
             outline: none;
             /* Remove the default focus outline */
+        }
+
+        .card__btn-plus1 {
+            background-color: #62C3E7;
         }
 
         .card__counter-score {
