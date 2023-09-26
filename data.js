@@ -50,7 +50,7 @@ const images = ["https://res.cloudinary.com/dgs4gikav/image/upload/v1694882608/I
     "https://res.cloudinary.com/dgs4gikav/image/upload/v1695675775/bubble_tray_l1nnxt.jpg", "https://res.cloudinary.com/dgs4gikav/image/upload/v1695676162/roundtray_ah9mym.jpg"
 ]
 const prices = [550, 300, 200, 400, 750, 100, 180, 350, 350, 400, 30, 230, 500, 550, 450, 350, 450, 300, 250, 180, 350,
-    200, 180, 400, 250, 300, 450, 300, 600, 400]
+    200, 180, 400, 250, 300, 450, 300, 600, 400, 400]
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"))
 db.once("open", () => {

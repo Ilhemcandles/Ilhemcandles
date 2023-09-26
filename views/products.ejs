@@ -62,7 +62,7 @@
                 margin-top: 20px;
             }
 
-            @media screen and (max-width: 440px) {
+            @media screen and (max-width: 651px) {
 
                 .containercandles {
                     grid-template-columns: 1fr;
@@ -106,7 +106,57 @@
                     position: absolute;
                 }
 
+                .image-container-platre {
+                    left: 18.75%;
+                }
 
+
+            }
+
+            @media screen and (min-width: 652px) and (max-width: 767px) {
+                .containercandles {
+                    grid-template-columns: repeat(2, 1fr);
+                    /* Display two items per row for screens between 652px and 991px */
+                }
+
+                .image-container {
+                    width: 140px;
+                    height: 140px;
+                    /* Fixed height */
+                    top: 0%;
+                    margin-top: 15px;
+
+
+                    left: 16%;
+                    position: absolute;
+                }
+
+                .image-container-platre {
+                    left: 15%;
+                }
+            }
+
+            @media screen and (min-width: 768px) and (max-width: 991px) {
+                .containercandles {
+                    grid-template-columns: repeat(3, 1fr);
+                    /* Display two items per row for screens between 652px and 991px */
+                }
+
+                .image-container {
+                    width: 140px;
+                    height: 140px;
+                    /* Fixed height */
+                    top: 0%;
+                    margin-top: 15px;
+
+
+                    left: 12%;
+                    position: absolute;
+                }
+
+                .image-container-platre {
+                    left: 10%;
+                }
             }
         </style>
 
@@ -165,7 +215,7 @@
                                             <%=product.price%>DA
                                         </h4>
                                     </div>
-                                    <div class="position-relative bg-primary rounded-circle p-3 image-container"
+                                    <div class="position-relative bg-primary rounded-circle p-3 image-container image-container-platre"
                                         style="width: 150px; height: 150px;margin-bottom: 25px;">
                                         <img class="rounded-circle w-100 h-100 product-image"
                                             src="<%= product.picture %>" style="object-fit: cover; ">

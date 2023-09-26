@@ -196,3 +196,72 @@ th:last-child {
     }
 
 }
+
+/* Custom styling for screens between 441px and 911px */
+@media screen and (min-width: 441px) and (max-width: 991px) {
+    table {
+        width: 100%;
+        border-collapse: separate;
+    }
+
+    .totale-price {
+        display: flex;
+        justify-content: center;
+    }
+
+    .cart-page {
+        margin-left: 0px;
+        margin-top: 50px;
+        margin-right: -5px;
+    }
+
+    td input {
+        width: 20px;
+        height: 30px;
+    }
+
+    th.quantity {}
+
+    /* Custom styling for iOS devices within this range */
+    @media screen and (max-width: 440px) {
+
+        /* Add your custom styles for iOS here */
+        .card__counter button {
+            width: 30px;
+            /* Adjust the width as needed */
+            height: 30px;
+            padding: 0;
+            /* Remove padding to eliminate extra space */
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            border-radius: 50%;
+            /* Makes the button round */
+            outline: none;
+            /* Remove the default focus outline */
+        }
+
+        .card__btn-plus1 {
+            background-color: #62C3E7;
+        }
+
+        .card__counter-score {
+            width: 30px;
+            /* Match the width of the plus and minus buttons */
+            height: 30px;
+            line-height: 30px;
+            /* Vertically center the number */
+            text-align: center;
+            font-size: 18px;
+        }
+
+        /* Adjust margin or spacing as needed */
+        .card__btn1 {
+            margin-right: 5px;
+        }
+
+        .card__btn-plus1 {
+            margin-left: 5px;
+        }
+    }
+}
