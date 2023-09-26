@@ -223,7 +223,7 @@ th:last-child {
     th.quantity {}
 
     /* Custom styling for iOS devices within this range */
-    @media screen and (max-width: 440px) {
+    @media screen and (min-width: 441px) and (max-width: 991px) {
 
         /* Add your custom styles for iOS here */
         .card__counter button {
