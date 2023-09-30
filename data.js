@@ -24,14 +24,14 @@ const names = ["Cups", "Flowers", "Cactus", "Gloves",
     "Rounded Tray", "Cloud Tray", "Love-Spring", "Roses's vase", "shell Tray",
     "Oysters", "Candle Shellfish (Smallsize)", "Woman Stray", "Cloud Candle",
     "Blossoms Candle", "Pumpkin Candle", "Statue", "Apples", "Collar supports", "Shell", "Rectangular tray",
-    "Bubble Tray", "Round tray"
+    "Bubble Tray", "Round tray", "Phone Holder"
 ];
 const categories = ["Candle", "Candle", "Candle", "Candle",
     "Candle", "Platre", "Candle", "Platre", "Platre", "Candle",
     "Candle", "Candle", "Candle", "Platre", "Platre", "Candle",
     "Platre", "Platre", "Candle", "Candle", "Platre",
     "Candle", "Candle", "Candle", "Platre", "Candle", "Platre", "Platre"
-    , "Platre", "Platre", "Platre"];
+    , "Platre", "Platre", "Platre", "Platre"];
 const images = ["https://res.cloudinary.com/dgs4gikav/image/upload/v1694882608/Ilhemcandle/wo4vbogz58oklbkk6ym4.jpg", "https://res.cloudinary.com/dgs4gikav/image/upload/v1694882608/Ilhemcandle/nbwxr1q0mopoctznjjao.jpg",
     "https://res.cloudinary.com/dgs4gikav/image/upload/v1694882603/Ilhemcandle/slmvahj7gfcbng8tsdga.jpg",
     "https://res.cloudinary.com/dgs4gikav/image/upload/v1694882611/Ilhemcandle/dcfmsdln0cte5ri2911t.jpg", "https://res.cloudinary.com/dgs4gikav/image/upload/v1694882602/Ilhemcandle/xjnrppvay7hjsakwqcqb.jpg",
@@ -47,10 +47,11 @@ const images = ["https://res.cloudinary.com/dgs4gikav/image/upload/v1694882608/I
     "https://res.cloudinary.com/dgs4gikav/image/upload/v1695070100/Ilhemcandle/x4zz2olgww60vjfnes3i.jpg", "https://res.cloudinary.com/dgs4gikav/image/upload/v1695070100/Ilhemcandle/ps3dhy9hy3d9xp3okth7.jpg",
     "https://res.cloudinary.com/dgs4gikav/image/upload/v1695070082/Ilhemcandle/isszmjl7ipa0q5clsngw.jpg", "https://res.cloudinary.com/dgs4gikav/image/upload/v1695675856/supportcollier_uidsfs.jpg",
     "https://res.cloudinary.com/dgs4gikav/image/upload/v1695675855/shelllll_yl286v.jpg", "https://res.cloudinary.com/dgs4gikav/image/upload/v1695675853/rectangulare_tray_plueif.jpg",
-    "https://res.cloudinary.com/dgs4gikav/image/upload/v1695675775/bubble_tray_l1nnxt.jpg", "https://res.cloudinary.com/dgs4gikav/image/upload/v1695676162/roundtray_ah9mym.jpg"
+    "https://res.cloudinary.com/dgs4gikav/image/upload/v1695675775/bubble_tray_l1nnxt.jpg", "https://res.cloudinary.com/dgs4gikav/image/upload/v1695676162/roundtray_ah9mym.jpg",
+    "https://res.cloudinary.com/dgs4gikav/image/upload/v1696080186/Phone_Holder_cawfqt.jpg"
 ]
 const prices = [550, 300, 200, 400, 750, 100, 180, 350, 350, 400, 30, 230, 500, 550, 450, 350, 450, 300, 250, 180, 350,
-    200, 180, 400, 250, 300, 450, 300, 600, 400, 400]
+    200, 180, 400, 250, 300, 450, 300, 600, 400, 400, 300]
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"))
 db.once("open", () => {
